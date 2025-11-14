@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function MonthlyReport() {
-  return (
-    <div>MonthlyReport</div>
-  );
+  return <div>MonthlyReport added</div>;
 }
 
-export default MonthlyReport
+export default MonthlyReport;
