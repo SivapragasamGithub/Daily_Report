@@ -13,6 +13,23 @@ function DailyReport() {
         <div>Investment</div>
         <div>Profit</div>
       </div>
+      <div className="flex justify-center space-x-4">
+        <div>
+          <input type="text" name="name" style={{background:"white",width:"45px",marginLeft:"1px" }} />
+        </div>
+         <div>
+          <input type="text" name="name" style={{background:"white",width:"145px" }} />
+        </div>
+         <div>
+          <input type="text" name="name" style={{background:"white",width:"45px" }} />
+        </div>
+         <div>
+          <input type="text" name="name" style={{background:"white",width:"45px" }} />
+        </div>
+         <div>
+          <input type="text" name="name" style={{background:"white",width:"45px" }} />
+        </div>
+      </div>
     </div>
   );
 }
