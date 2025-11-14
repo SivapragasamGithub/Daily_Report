@@ -1,7 +1,7 @@
 import React from "react";
 
 function MonthlyReport() {
-  return <div>MonthlyReport added</div>;
+  return <div>MonthlyReport</div>;
 }
 
 export default MonthlyReport;

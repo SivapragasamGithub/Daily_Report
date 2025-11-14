@@ -3,12 +3,14 @@ import "./App.css";
 import HomePage from "./HomePage/HomePage";
 import MonthlyReport from "./MonthlyReportPage/MonthlyReport";
 import DailyReport from "./DailyReportPage/DailyReport";
+import Home from "./Home/Home";
 
 function App() {
   return (
     <>
       <div className="h-screen bg-[#B5CCD2] flex items-center justify-center">
         <BrowserRouter>
+          <Home />
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/MonthlyReport" element={<MonthlyReport />} />
