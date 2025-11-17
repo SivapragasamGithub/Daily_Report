@@ -8,7 +8,6 @@ function AddSaleModal({ open, onClose, onSubmit }) {
       <div className="bg-white w-[350px] p-5 rounded-lg shadow-lg">
         <h2 className="text-lg font-semibold mb-4">Add New Sale</h2>
         <form
-          on
           onSubmit={(e) => {
             e.preventDefault();
             const data = {

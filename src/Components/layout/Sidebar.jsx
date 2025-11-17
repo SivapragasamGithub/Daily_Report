@@ -1,5 +1,5 @@
 import React from "react";
-import MenuItem from "./MenuItem";
+import MenuItem from "./MenuItem"
 import { BarChart, Home, ListChecks, Settings } from "lucide-react";
 
 function Sidebar({ open }) {

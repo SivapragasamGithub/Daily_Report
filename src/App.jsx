@@ -2,8 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Sidebar from "./Components/Layout/sidebar";
 import { useState } from "react";
-import TopHeader from "./Components/layout/TopHeader";
-import DashboardPage from "./Components/layout/DashboardPage";
+import TopHeader from "./Components/Layout/TopHeader";
+import DashboardPage from "./Components/Layout/DashboardPage";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -25,7 +25,8 @@ function App() {
             <main className="p-6">
               <Routes>
                 <Route path="/" element={<DashboardPage />} />
-                
+                {/* <Route path="/daily" element={<DailyReport />} /> */}
+                {/* <Route path="/monthly" element={<MonthlyReport />} /> */}
               </Routes>
             </main>
           </div>
