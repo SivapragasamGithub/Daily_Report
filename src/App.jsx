@@ -1,23 +1,24 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 import "./App.css";
-import HomePage from "./HomePage/HomePage";
-import MonthlyReport from "./MonthlyReportPage/MonthlyReport";
-import DailyReport from "./DailyReportPage/DailyReport";
-import Home from "./Home/Home";
+import Sidebar from "./Components/Layout/sidebar";
+import { useState } from "react";
+import TopHeader from "./Components/layout/TopHeader";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const toggleSidebar = () => setSidebarOpen((v) => !v);
   return (
     <>
-      <div className="h-screen bg-[#B5CCD2] flex items-center justify-center">
-        <BrowserRouter>
-          <Home />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/MonthlyReport" element={<MonthlyReport />} />
-            <Route path="/DailyReport" element={<DailyReport />} />
-          </Routes>
-        </BrowserRouter>
-      </div>
+      <BrowserRouter>
+        <div className="min-h-screen bg-[#EEF5FF] flex">
+          {/*Sidebar will be fixed even the page resized*/}
+          <Sidebar open={sidebarOpen} />
+          <div className={`flex-1 min-h-screen transition-all ${sidebarOpen ?"lg:ml-64" : "lg-ml-0"}`}>
+            {/* Top header */}
+            <TopHeader toggleSidebar={toggleSidebar} />
+          </div>
+        </div>
+      </BrowserRouter>
     </>
   );
 }
