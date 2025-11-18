@@ -5,7 +5,7 @@ import { Plus } from "lucide-react";
 import TransactionTable from "./TransactionTable";
 import AddSaleModal from "./AddSaleModal";
 
-function DashboardPage() {
+function DashboardPage({open}) {
   const [modal, setModal] = useState(false);
   const [transactions, setTransactions] = useState([]);
 
@@ -15,7 +15,7 @@ function DashboardPage() {
   };
 
   return (
-    <div>
+    <div >
       <div className="grid grid-cols-3 gap-4 mb-6 ">
         <SummaryCard title="Total Sales" value="₹ 0" />
         <SummaryCard title="Total Profit" value="₹ 0" />

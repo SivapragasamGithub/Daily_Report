@@ -6,25 +6,29 @@ import TopHeader from "./Components/Layout/TopHeader";
 import DashboardPage from "./Components/Layout/DashboardPage";
 
 function App() {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   return (
     <>
       <BrowserRouter>
-        <div className="min-h-screen bg-[#EEF5FF] flex">
+        <div
+          className={`min-h-screen bg-[#d0ddf0] flex justify-between ${
+            !sidebarOpen ? "lg:ml-64 " : "lg:ml-0 "
+          }`}
+        >
           {/*Sidebar will be fixed even the page resized*/}
           <Sidebar open={sidebarOpen} />
           <div
             className={`flex-1 min-h-screen transition-all ${
-              sidebarOpen ? "lg:ml-64" : "lg-ml-0"
+              sidebarOpen ? "lg:ml-64" : "lg:ml-0"
             }`}
           >
             {/* Top header */}
-            <TopHeader toggleSidebar={toggleSidebar} />
+            <TopHeader open={sidebarOpen} toggleSidebar={toggleSidebar} />
             {/* Page content */}
             <main className="p-6">
               <Routes>
-                <Route path="/" element={<DashboardPage />} />
+                <Route path="/" element={<DashboardPage open={open} />} />
                 {/* <Route path="/daily" element={<DailyReport />} /> */}
                 {/* <Route path="/monthly" element={<MonthlyReport />} /> */}
               </Routes>
