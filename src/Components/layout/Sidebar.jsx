@@ -6,7 +6,7 @@ function Sidebar({ open }) {
   return (
     <div
       className={`fixed left-0 top-0 h-full bg-slate-900 w-64 p-4 transition-transform ${
-        open ? "translate-x-0 " : "-translate-x-64 "
+        open ? "translate-x-0 mt-14 " : "-translate-x-64 "
       } lg:translate-x-0`}
     >
       <h1 className="text-white text-2xl font-semibold mb-6">MY Reports</h1>
