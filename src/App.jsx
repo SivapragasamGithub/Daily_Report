@@ -11,7 +11,7 @@ function App() {
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   return (
     <>
-      <TransactionProvider>
+    <TransactionProvider>
         <BrowserRouter>
           <div
             className={`min-h-screen bg-[#d0ddf0] flex justify-between ${
@@ -34,7 +34,7 @@ function App() {
             </div>
           </div>
         </BrowserRouter>
-      </TransactionProvider>
+        </TransactionProvider>
     </>
   );
 }

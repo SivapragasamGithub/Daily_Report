@@ -5,8 +5,11 @@ const transactionContext = createContext();
 
 export function TransactionProvider({ children }) {
   const [transactions, setTransaction] = useState([]);
+    const [modal, setModal] = useState(false);
+  
   const addSale = (data) => {
     setTransaction((prev) => [...prev, data]);
+    setModal(false)
   };
 
   const totals = useMemo(() => {
@@ -25,7 +28,7 @@ export function TransactionProvider({ children }) {
 
   return (
     <transactionContext.Provider
-      value={{ transactions, addSale, ...totals, totals }}
+      value={{ transactions, addSale, ...totals, totals,setModal,modal }}
     >
       {children}
     </transactionContext.Provider>
@@ -33,3 +36,5 @@ export function TransactionProvider({ children }) {
 }
 
 export default transactionContext;
+
+

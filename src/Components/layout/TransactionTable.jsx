@@ -43,11 +43,12 @@ function TransactionTable({ transactions }) {
   return (
     <table className="w-full bg-white shadow rounded-lg overflow-hidden">
       <thead className="bg-green-100">
-        <tr>
+        <tr>          
           <th className="p-3 text-left">Description</th>
           <th className="p-3 text-left">Sale</th>
           <th className="p-3 text-left">Purchase</th>
           <th className="p-3 text-left">Profit</th>
+          {/* <th className="p-3 text-left">Date:{new Date()}</th> */}
         </tr>
       </thead>
 
