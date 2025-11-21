@@ -14,6 +14,7 @@ function AddSaleModal({ open, onClose, onSubmit }) {
               desc: e.target.desc.value,
               sale: Number(e.target.sale.value),
               purchase: Number(e.target.purchase.value),
+              Date:new Date()
             };
             onSubmit(data);
           }}

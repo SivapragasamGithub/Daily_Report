@@ -5,16 +5,17 @@ import { Plus } from "lucide-react";
 import TransactionTable from "./TransactionTable";
 import AddSaleModal from "./AddSaleModal";
 import transactionContext from "../TransactionContext";
+import dayjs from "dayjs";
 
 function DashboardPage({ open }) {
   const { totals, addSale, transactions, setModal, modal } =
     useContext(transactionContext);
 
+
   return (
     <div>
-      <div className="font-extrabold flex justify-end " >
-        <Date/>
-      </div>
+      <div className="font-extrabold text-3xl mb-3 font-serif text-blue-700 flex justify-end ">Date : { dayjs (new Date()).format("DD-MM-YYYY")}
+</div>
       <div className="grid grid-cols-3 gap-4 mb-6 ">
         <SummaryCard title="Total Sales" value={`₹ ${totals.totalSale}`} />
         <SummaryCard title="Total Profit" value={`₹ ${totals.totalProfit}`} />
