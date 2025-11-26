@@ -15,6 +15,7 @@ function TransactionTable({ transactions }) {
           <th className="p-3 text-left">Sale</th>
           <th className="p-3 text-left">Purchase</th>
           <th className="p-3 text-left">Profit</th>
+          <th className="p-3 text-left ">Actions</th>
         </tr>
       </thead>
 
@@ -25,6 +26,16 @@ function TransactionTable({ transactions }) {
             <td className="p-3">{sales[i]}</td>
             <td className="p-3">{purchases[i]}</td>
             <td className="p-3 font-semibold text-green-600">{profits[i]}</td>
+            <div className="ml-1 ">
+              <button
+              
+              className="mb-4 mt-3 w-20 h-10 rounded-full bg-emerald-400 flex items-center justify-center ">
+                Edit
+              </button>
+              <button className="mb-4 mt-3 w-20 h-10 rounded-full bg-red-400 flex items-center justify-center ">
+                Delete
+              </button>
+            </div>
           </tr>
         ))}
       </tbody>

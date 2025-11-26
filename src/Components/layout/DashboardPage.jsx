@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import SummaryCard from "./SummaryCard";
 // import IconButton from "./IconButton";
 import { Plus } from "lucide-react";
@@ -6,11 +6,31 @@ import TransactionTable from "./TransactionTable";
 import AddSaleModal from "./AddSaleModal";
 import transactionContext from "../TransactionContext";
 import dayjs from "dayjs";
+import axios from "axios";
 
 function DashboardPage({ open }) {
-  const { totals, addSale, transactions, setModal, modal } =
+  // const [addedtran, setAddedtran] = useState([]);
+  const { totals, addSale, transactions, setModal, modal,setTransaction } =
     useContext(transactionContext);
-  const onClick = () => setModal(true);
+  const onClick = () => {
+    setModal(true);
+  };
+
+  const fetchData = async () => {
+    try {
+      const allTran = await axios.get(
+        "https://6921a27c512fb4140be0d9da.mockapi.io/tran"
+        
+      );
+      setTransaction(allTran.data);
+    } catch (error) {
+      alert("fetching error at Dashboard page");
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   return (
     <div>
@@ -32,6 +52,7 @@ function DashboardPage({ open }) {
         {/* <IconButton icon={<Plus />} onClick={() => setModal(true)} /> */}
       </div>
       <TransactionTable transactions={transactions} />
+      
       <AddSaleModal
         open={modal}
         onClose={() => setModal(false)}

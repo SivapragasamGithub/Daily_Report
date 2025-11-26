@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useContext, useMemo, useState } from "react";
 import { createContext } from "react";
 
@@ -7,10 +8,21 @@ export function TransactionProvider({ children }) {
   const [transactions, setTransaction] = useState([]);
   const [modal, setModal] = useState(false);
 
-  const addSale = (data) => {
-    setTransaction((prev) => [...prev, data]);
-    setModal(false);
+  const addSale = async (data) => {
+    try {
+      await axios.post(
+        "https://6921a27c512fb4140be0d9da.mockapi.io/tran",
+        data
+      );
+      setTransaction((prev) => [...prev, data]);
+      setModal(false);
+      console.log("the values added is:", data);
+    } catch (error) {
+      alert(error);
+    }
   };
+  // setTransaction((prev) => [...prev, data]);
+  // setModal(false);
 
   const totals = useMemo(() => {
     let totalSale = 0;
@@ -29,7 +41,7 @@ export function TransactionProvider({ children }) {
 
   return (
     <transactionContext.Provider
-      value={{ transactions, addSale, ...totals, totals, setModal, modal }}
+      value={{ transactions, addSale, ...totals, totals, setModal, modal,setTransaction }}
     >
       {children}
     </transactionContext.Provider>
