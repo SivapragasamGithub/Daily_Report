@@ -5,13 +5,14 @@ import { useState } from "react";
 import TopHeader from "./Components/Layout/TopHeader";
 import DashboardPage from "./Components/Layout/DashboardPage";
 import { TransactionProvider } from "./Components/TransactionContext";
+import AddSaleModal from "./Components/layout/AddSaleModal";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const toggleSidebar = () => setSidebarOpen((v) => !v);
   return (
     <>
-    <TransactionProvider>
+      <TransactionProvider>
         <BrowserRouter>
           <div
             className={`min-h-screen bg-[#d0ddf0] flex justify-between ${
@@ -27,6 +28,8 @@ function App() {
               <main className={` p-6 ${sidebarOpen ? "ml-64" : "ml-0"} `}>
                 <Routes>
                   <Route path="/" element={<DashboardPage open={open} />} />
+                  <Route path="/addSaleModal" element={<AddSaleModal />} />
+                  <Route path="/addSaleModal/:id" element={<AddSaleModal />} />
                   {/* <Route path="/daily" element={<DailyReport />} /> */}
                   {/* <Route path="/monthly" element={<MonthlyReport />} /> */}
                 </Routes>
@@ -34,7 +37,7 @@ function App() {
             </div>
           </div>
         </BrowserRouter>
-        </TransactionProvider>
+      </TransactionProvider>
     </>
   );
 }

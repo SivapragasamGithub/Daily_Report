@@ -7,20 +7,29 @@ import AddSaleModal from "./AddSaleModal";
 import transactionContext from "../TransactionContext";
 import dayjs from "dayjs";
 import axios from "axios";
+import { useParams } from "react-router-dom";
 
 function DashboardPage({ open }) {
   // const [addedtran, setAddedtran] = useState([]);
-  const { totals, addSale, transactions, setModal, modal,setTransaction } =
-    useContext(transactionContext);
+  const {
+    totals,
+    addSale,
+    transactions,
+    setModal,
+    modal,
+    setTransaction,
+    editData,
+    setEditData,
+  } = useContext(transactionContext);
   const onClick = () => {
     setModal(true);
   };
+  const { id } = useParams();
 
   const fetchData = async () => {
     try {
       const allTran = await axios.get(
         "https://6921a27c512fb4140be0d9da.mockapi.io/tran"
-        
       );
       setTransaction(allTran.data);
     } catch (error) {
@@ -52,10 +61,13 @@ function DashboardPage({ open }) {
         {/* <IconButton icon={<Plus />} onClick={() => setModal(true)} /> */}
       </div>
       <TransactionTable transactions={transactions} />
-      
+
       <AddSaleModal
         open={modal}
-        onClose={() => setModal(false)}
+        onClose={() => {
+          setModal(false);
+          setEditData(null);
+        }}
         onSubmit={addSale}
       />
     </div>

@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Link, useParams } from "react-router-dom";
+import transactionContext from "../TransactionContext";
 
-function TransactionTable({ transactions }) {
+function TransactionTable({ transactions, transaction }) {
   // Extract individual arrays
   const descriptions = transactions.map((t) => t.desc);
   const sales = transactions.map((t) => t.sale);
   const purchases = transactions.map((t) => t.purchase);
   const profits = transactions.map((t) => t.sale - t.purchase);
+  const { setModal, setEditData, handleDelete } =
+    useContext(transactionContext);
 
   return (
     <table className="w-full bg-white shadow rounded-lg overflow-hidden">
@@ -26,16 +30,23 @@ function TransactionTable({ transactions }) {
             <td className="p-3">{sales[i]}</td>
             <td className="p-3">{purchases[i]}</td>
             <td className="p-3 font-semibold text-green-600">{profits[i]}</td>
-            <div className="ml-1 ">
+            <td className="ml-1 ">
               <button
-              
-              className="mb-4 mt-3 w-20 h-10 rounded-full bg-emerald-400 flex items-center justify-center ">
+                onClick={() => {
+                  setEditData(t);
+                  setModal(true);
+                }}
+                className="mb-4 mt-3 w-20 h-10 rounded-full bg-emerald-400 flex items-center justify-center "
+              >
                 Edit
               </button>
-              <button className="mb-4 mt-3 w-20 h-10 rounded-full bg-red-400 flex items-center justify-center ">
+              <button
+                onClick={() => handleDelete(t.id)}
+                className="mb-4 mt-3 w-20 h-10 rounded-full bg-red-400 flex items-center justify-center "
+              >
                 Delete
               </button>
-            </div>
+            </td>
           </tr>
         ))}
       </tbody>
