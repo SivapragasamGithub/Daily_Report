@@ -39,7 +39,7 @@ function AddSaleModal({ open, onClose, onSubmit }) {
           onSubmit={(e) => {
             e.preventDefault();
             const data = {
-              desc: form.desc,
+              description: form.desc,
               sale: Number(form.sale),
               purchase: Number(form.purchase),
               Date: new Date(),

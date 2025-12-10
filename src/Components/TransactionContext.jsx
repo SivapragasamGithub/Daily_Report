@@ -14,7 +14,7 @@ export function TransactionProvider({ children }) {
     try {
       if (editData) {
         await axios.put(
-          `https://6921a27c512fb4140be0d9da.mockapi.io/tran/${editData.id}`,
+          `https://localhost:8080/api/transactions/${editData.id}`,
           data
         );
         setTransaction((prev) =>
@@ -25,7 +25,7 @@ export function TransactionProvider({ children }) {
         setModal(false);
       } else {
         const response = await axios.post(
-          "https://6921a27c512fb4140be0d9da.mockapi.io/tran",
+          "https://localhost:8080/api/transactions",
           data
         );
         setTransaction((prev) => [...prev, response.data]);
@@ -38,9 +38,7 @@ export function TransactionProvider({ children }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(
-        `https://6921a27c512fb4140be0d9da.mockapi.io/tran/${id}`
-      );
+      await axios.delete(`https://localhost:8080/api/transactions/${id}`);
       setTransaction((prev) =>
         prev.filter((transaction) => transaction.id !== id)
       );

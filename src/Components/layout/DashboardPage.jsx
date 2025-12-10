@@ -29,7 +29,7 @@ function DashboardPage({ open }) {
   const fetchData = async () => {
     try {
       const allTran = await axios.get(
-        "https://6921a27c512fb4140be0d9da.mockapi.io/tran"
+        "https://localhost:8080/api/transactions"
       );
       setTransaction(allTran.data);
     } catch (error) {
