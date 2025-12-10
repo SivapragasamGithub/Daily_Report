@@ -8,7 +8,7 @@ function AddSaleModal({ open, onClose, onSubmit }) {
 
   // Local state for input values
   const [form, setForm] = useState({
-    desc: "",
+    description: "",
     sale: "",
     purchase: "",
   });
@@ -17,7 +17,7 @@ function AddSaleModal({ open, onClose, onSubmit }) {
   useEffect(() => {
     if (editData) {
       setForm({
-        desc: editData.desc,
+        desc: editData.description,
         sale: editData.sale,
         purchase: editData.purchase,
       });

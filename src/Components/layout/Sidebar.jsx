@@ -1,6 +1,7 @@
 import React from "react";
 import MenuItem from "./MenuItem";
 import { BarChart, Home, ListChecks, Settings } from "lucide-react";
+import { Link } from "react-router-dom";
 
 function Sidebar({ open }) {
   return (
@@ -11,11 +12,30 @@ function Sidebar({ open }) {
     >
       <h1 className="text-white text-2xl font-semibold mb-6">MY Reports</h1>
 
-      <div className="flex flex-col gap-2">
+      {/* <div className="flex flex-col gap-2">
         <MenuItem icon={<Home />} label="Dashboard" active />
         <MenuItem icon={<BarChart />} label="Monthly Report" />
         <MenuItem icon={<ListChecks />} label="Daily Report" />
         <MenuItem icon={<Settings />} label="Settings" />
+      </div> */}
+      <div className="flex flex-col gap-2">
+        <Link to="/">
+          <MenuItem icon={<Home />} label="Dashboard" active />
+        </Link>
+
+        <Link to="/">
+          <MenuItem icon={<BarChart />} label="Monthly Report" />
+        </Link>
+
+        <Link to="/">
+          {" "}
+          {/* Daily Report now opens Dashboard */}
+          <MenuItem icon={<ListChecks />} label="Daily Report" />
+        </Link>
+
+        <Link to="/settings">
+          <MenuItem icon={<Settings />} label="Settings" />
+        </Link>
       </div>
     </div>
   );

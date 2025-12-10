@@ -28,10 +28,9 @@ function DashboardPage({ open }) {
 
   const fetchData = async () => {
     try {
-      const allTran = await axios.get(
-        "https://localhost:8080/api/transactions"
-      );
+      const allTran = await axios.get("http://localhost:8080/api/transactions");
       setTransaction(allTran.data);
+      console.log("the received data is:", allTran.data);
     } catch (error) {
       alert("fetching error at Dashboard page");
     }

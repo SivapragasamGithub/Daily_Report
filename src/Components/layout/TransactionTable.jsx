@@ -4,7 +4,7 @@ import transactionContext from "../TransactionContext";
 
 function TransactionTable({ transactions, transaction }) {
   // Extract individual arrays
-  const descriptions = transactions.map((t) => t.desc);
+  const descriptions = transactions.map((t) => t.description);
   const sales = transactions.map((t) => t.sale);
   const purchases = transactions.map((t) => t.purchase);
   const profits = transactions.map((t) => t.sale - t.purchase);

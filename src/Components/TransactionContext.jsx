@@ -14,7 +14,7 @@ export function TransactionProvider({ children }) {
     try {
       if (editData) {
         await axios.put(
-          `https://localhost:8080/api/transactions/${editData.id}`,
+          `http://localhost:8080/api/transactions/${editData.id}`,
           data
         );
         setTransaction((prev) =>
@@ -25,7 +25,7 @@ export function TransactionProvider({ children }) {
         setModal(false);
       } else {
         const response = await axios.post(
-          "https://localhost:8080/api/transactions",
+          "http://localhost:8080/api/transactions",
           data
         );
         setTransaction((prev) => [...prev, response.data]);
@@ -38,7 +38,7 @@ export function TransactionProvider({ children }) {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://localhost:8080/api/transactions/${id}`);
+      await axios.delete(`http://localhost:8080/api/transactions/${id}`);
       setTransaction((prev) =>
         prev.filter((transaction) => transaction.id !== id)
       );
