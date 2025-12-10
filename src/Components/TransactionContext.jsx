@@ -10,6 +10,17 @@ export function TransactionProvider({ children }) {
   // const { id } = useParams();
   const [editData, setEditData] = useState(null);
 
+  const fetchToday = async () => {
+    try {
+      const res = await axios.get(
+        "http://localhost:8080/api/transactions/today"
+      );
+      setTransaction(res.data);
+    } catch (error) {
+      console.error("fetchToday error:", error);
+    }
+  };
+
   const addSale = async (data) => {
     try {
       if (editData) {
@@ -75,6 +86,7 @@ export function TransactionProvider({ children }) {
         editData,
         setEditData,
         handleDelete,
+        fetchToday,
       }}
     >
       {children}

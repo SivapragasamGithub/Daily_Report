@@ -20,25 +20,32 @@ function DashboardPage({ open }) {
     setTransaction,
     editData,
     setEditData,
+    fetchToday,
   } = useContext(transactionContext);
+
+useEffect(() => {
+    // Load today's transactions when dashboard mounts
+    fetchToday();
+  }, []); // once on mount
+
+
   const onClick = () => {
     setModal(true);
   };
-  const { id } = useParams();
 
-  const fetchData = async () => {
-    try {
-      const allTran = await axios.get("http://localhost:8080/api/transactions");
-      setTransaction(allTran.data);
-      console.log("the received data is:", allTran.data);
-    } catch (error) {
-      alert("fetching error at Dashboard page");
-    }
-  };
+  // const fetchData = async () => {
+  //   try {
+  //     const allTran = await axios.get("http://localhost:8080/api/transactions");
+  //     setTransaction(allTran.data);
+  //     console.log("the received data is:", allTran.data);
+  //   } catch (error) {
+  //     alert("fetching error at Dashboard page");
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <div>
