@@ -23,7 +23,7 @@ function Sidebar({ open }) {
           <MenuItem icon={<Home />} label="Dashboard" active />
         </Link>
 
-        <Link to="/">
+        <Link to="/monthly">
           <MenuItem icon={<BarChart />} label="Monthly Report" />
         </Link>
 

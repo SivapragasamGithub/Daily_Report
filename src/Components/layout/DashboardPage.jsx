@@ -23,11 +23,10 @@ function DashboardPage({ open }) {
     fetchToday,
   } = useContext(transactionContext);
 
-useEffect(() => {
+  useEffect(() => {
     // Load today's transactions when dashboard mounts
     fetchToday();
   }, []); // once on mount
-
 
   const onClick = () => {
     setModal(true);

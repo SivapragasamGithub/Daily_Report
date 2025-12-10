@@ -6,6 +6,7 @@ import TopHeader from "./Components/Layout/TopHeader";
 import DashboardPage from "./Components/Layout/DashboardPage";
 import { TransactionProvider } from "./Components/TransactionContext";
 import AddSaleModal from "./Components/layout/AddSaleModal";
+import MonthlyReport from "./DailyReportPage/MonthlyReportPage/MonthlyReport";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -31,7 +32,7 @@ function App() {
                   <Route path="/addSaleModal" element={<AddSaleModal />} />
                   <Route path="/addSaleModal/:id" element={<AddSaleModal />} />
                   {/* <Route path="/daily" element={<DailyReport />} /> */}
-                  {/* <Route path="/monthly" element={<MonthlyReport />} /> */}
+                  <Route path="/monthly" element={<MonthlyReport />} />
                 </Routes>
               </main>
             </div>
