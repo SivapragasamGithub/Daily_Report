@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-//test
 import "./App.css";
 import Sidebar from "./Components/Layout/sidebar";
 import { useState } from "react";
